@@ -18,7 +18,8 @@ node('Linux'){
         notify = load 'jenks-scripts/notify.gsh'
 
      stage name: 'Code Build'
-        bat "${mvnHome}/bin/mvn -B clean deploy"
+        //bat "${mvnHome}/bin/mvn -B clean deploy"
+        sh "${mvnHome}/bin/mvn -B clean deploy"
      stage name: 'Publish Test Data'
         step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
      //stage name: 'Publish Coverage Report'
@@ -27,6 +28,7 @@ node('Linux'){
     catch(e){
      stage name: 'Send Notification'
         currentBuild.result = 'FAILURE'
+        throw ${e}
         notify.notifyFailed()
     }
 }
