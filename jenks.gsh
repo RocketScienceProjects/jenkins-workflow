@@ -1,6 +1,6 @@
 def notify
 
-node('master'){
+node('Linux'){
 
     try{
       stage name: 'Init'
