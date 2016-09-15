@@ -1,3 +1,5 @@
+println('Loaded notify.gsh')
+
 def notifyFailed() {
   emailext (to: "${EMAIL}",
       subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
@@ -6,3 +8,5 @@ def notifyFailed() {
         mimeType:'text/html'
     )
 }
+
+return this;
