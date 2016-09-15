@@ -4,7 +4,8 @@ node('Linux'){
 
     try{
       stage name: 'Init'
-        def mvnHome = tool 'M3'
+        //def mvnHome = tool 'M3'
+        def mvnHome = tool 'Linux-Maven'
 
      stage name: 'Code Checkout'
         //Checkout the source code
