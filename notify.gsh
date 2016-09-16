@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy
+
 println('Loaded notify.gsh')
 
 def notifyFailed() {
