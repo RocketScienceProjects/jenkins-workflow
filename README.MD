@@ -1,7 +1,7 @@
 #outline
 
 1. set the node for execution
-2. Build the
+2. Build: 
       1\ unit test & report
       2\ compile
       3\ code coverage & Report
