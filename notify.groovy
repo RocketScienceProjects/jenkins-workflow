@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-println('Loaded notify.gsh')
+println('Loaded notify.groovy')
 
 def notifyFailed() {
   emailext (to: "${EMAIL}",
