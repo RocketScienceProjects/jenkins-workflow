@@ -25,6 +25,8 @@ node('Linux'){
         step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
      //stage name: 'Publish Coverage Report'
         //step([$class: 'JacocoPublisher', sourcePattern: 'src/com/blueking/controller/*.java'])
+     stage name: 'Code Coverage Report'
+       step([$class: 'JacocoPublisher', sourcePattern: '**/src/**.java'])
     }
     catch(e){
      stage name: 'Send Notification'
