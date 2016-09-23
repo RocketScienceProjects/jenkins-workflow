@@ -11,6 +11,7 @@ node('Linux'){
 
      stage name: 'Code Build'
         sh 'mvn clean deploy'
+        sleep 150
 
     stage name: 'Get the buildtime'
        def buildtime = currentBuild.getDuration();
