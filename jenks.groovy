@@ -24,7 +24,7 @@ def notify
 
 node('Linux'){
 
-    try{
+    try {
       stage name: 'Init'
         //def mvnHome = tool 'M3'
         def mvnHome = tool 'Linux-Maven'
@@ -53,7 +53,7 @@ node('Linux'){
     */
 
     stage name: 'Get the buildtime'
-     sh 'echo "this is buildtime stage" && "echo $?"'
+     println "this is buildtime stage"
     //def buildtime = currentBuild.getDuration();
     //println "This is the build time: ${buildtime} "
     }
