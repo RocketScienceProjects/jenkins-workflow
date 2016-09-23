@@ -1,5 +1,5 @@
 
-import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 import groovy.time.TimeCategory;
 
 long startTime = System.currentTimeMillis()
