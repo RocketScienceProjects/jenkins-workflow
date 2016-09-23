@@ -57,7 +57,7 @@ node('Linux'){
     */
 
 
-    def buildtime = currentBuild.getDuration()
+    def buildtime = currentBuild.getDuration();
     sh 'echo "This is the build time: ${buildtime} "'
     }
     catch(e){
