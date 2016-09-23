@@ -1,3 +1,5 @@
+long startTime = System.currentTimeMillis()
+
 node('Linux'){
 
     try {
@@ -14,8 +16,10 @@ node('Linux'){
         sleep 150
 
     stage name: 'Get the buildtime'
-       def buildtime = currentBuild.getDuration();
-       println "This is the build time: ${buildtime}"
+       //def buildtime = currentBuild.getDuration();
+       long elapsedMillis = System.currentTimeMillis() - startTime;
+       println "This is the build time: ${elapsedMillis}"
+
      }
 
     catch(err){
