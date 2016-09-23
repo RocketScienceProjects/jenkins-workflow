@@ -1,4 +1,4 @@
-#!groovy 
+#!groovy
 
 def notify
 
@@ -23,6 +23,7 @@ node('Linux'){
      stage name: 'Code Build'
         //bat "${mvnHome}/bin/mvn -B clean deploy"
         sh "${mvnHome}/bin/mvn -B clean deploy"
+        sh "echo $?"
   //   stage name: 'Publish Test Data'
     //    step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
      //stage name: 'Publish Coverage Report'
