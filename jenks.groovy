@@ -1,6 +1,4 @@
-#!groovy
-
-def notify
+//def notify
 
 node('Linux'){
 
