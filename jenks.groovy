@@ -1,5 +1,4 @@
-
-
+#!groovy 
 
 def notify
 
