@@ -30,12 +30,12 @@ node('Linux'){
        step([$class: 'JacocoPublisher', sourcePattern: '**/src/**.java'])
     */
 
-    println currentBuild.getDuration()   
+    println currentBuild.getDuration()
     }
     catch(e){
      stage name: 'Send Notification'
         currentBuild.result = 'FAILURE'
-        throw ${e}
+        throw e
         notify.notifyFailed()
     }
 }
