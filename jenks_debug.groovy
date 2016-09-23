@@ -20,6 +20,12 @@ node('Linux'){
        long elapsedMillis = System.currentTimeMillis() - startTime;
        println "This is the build time: ${elapsedMillis}"
 
+       Date date = new Date(elapsedMillis);
+       DateFormat formatter = new SimpleDateFormat("HH:mm:ss:SSS");
+       String dateFormatted = formatter.format(date);
+
+       println "${dateFormatted}"
+
      }
 
     catch(err){
