@@ -56,6 +56,7 @@ node('Linux'){
        step([$class: 'JacocoPublisher', sourcePattern: '**/src/**.java'])
     */
 
+    stage name: 'Get the buildtime'
 
     def buildtime = currentBuild.getDuration();
     println "This is the build time: ${buildtime} "
