@@ -58,7 +58,7 @@ node('Linux'){
 
 
     def buildtime = currentBuild.getDuration();
-    sh 'echo "This is the build time: ${buildtime} "'
+    println "This is the build time: ${buildtime} "
     }
     catch(e){
      stage name: 'Send Notification'
