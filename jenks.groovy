@@ -43,6 +43,6 @@ node('Linux'){
      stage name: 'Send Notification'
         currentBuild.result = 'FAILURE'
         throw e
-        notify.notifyFailed()
+        //notify.notifyFailed()
     }
 }
