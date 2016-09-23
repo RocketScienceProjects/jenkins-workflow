@@ -13,6 +13,8 @@ node('Linux'){
         sh 'mvn clean deploy'
 
     stage name: 'Get the buildtime'
+       def buildtime = currentBuild.getDuration();
+       println "This is the build time: ${buildtime}"
      }
 
     catch(err){
