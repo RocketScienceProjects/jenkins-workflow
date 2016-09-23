@@ -1,5 +1,3 @@
-#!/usr/bin/env groovy
-
 println('Loaded notify.groovy')
 
 def notifyFailed() {
