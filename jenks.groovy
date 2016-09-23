@@ -6,6 +6,7 @@ node('Linux'){
       stage name: 'Init'
         //def mvnHome = tool 'M3'
         def mvnHome = tool 'Linux-Maven'
+        env.PATH = "${mvnHome}//bin//mvn;${env.PATH}"
 
      stage name: 'Code Checkout'
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: true]], gitTool: 'Linux_Git', submoduleCfg: [], userRemoteConfigs: [[credentialsId: '8c38cbe8-f4e2-4150-918a-0264a28cff73', url: 'git@github.com:RocketScienceProjects/BlueKing.git']]])
@@ -16,7 +17,7 @@ node('Linux'){
 
      stage name: 'Code Build'
         //bat "${mvnHome}/bin/mvn -B clean deploy"
-        sh '"${mvnHome}"/bin/mvn -B clean deploy'
+        sh 'mvn -B clean deploy'
         sh 'echo $?'
   //   stage name: 'Publish Test Data'
     //    step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
