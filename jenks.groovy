@@ -20,10 +20,6 @@ import org.jenkinsci.plugins.scriptsecurity.sandbox.whitelists.Whitelisted;
 import org.jenkinsci.plugins.workflow.support.actions.EnvironmentAction;
 
 
-
-
-
-
 def notify
 
 node('Linux'){
@@ -57,10 +53,11 @@ node('Linux'){
     */
 
     stage name: 'Get the buildtime'
-
+     sh 'echo "this is buildtime stage" && "echo $?"'
     //def buildtime = currentBuild.getDuration();
     //println "This is the build time: ${buildtime} "
     }
+
     catch(e){
      stage name: 'Send Notification'
         currentBuild.result = 'FAILURE'
