@@ -55,6 +55,24 @@ try{
 		mv src src_bk
 		mkdir src
 		mv config/deployments/devDeploy/* src/
+		#this will handle if any destructive xml get generated
+		echo "Check if destructive xml exist.........."
+        if [ -f src/destructiveChanges.xml ]
+        then
+           (
+            mv src/destructiveChanges.xml src/destructiveChanges.xml.src_bk
+            status=$?
+            if [ $status == 0 ]
+            then
+             echo "renamed the destructiveChanges.xml to destructiveChanges.xml.bk, to avoid interfering in the deployment via the API....."
+            else
+             echo "renaming failed for the destructiveChanges.xml"
+             exit 1
+            fi  
+           )
+        else
+            echo "No destructiveChanges.xml was generated......"
+        fi     
 		echo "Check for permissionSets and do file manipulation"
 		if [ -d src/permissionsets ] 
 		then
@@ -92,7 +110,7 @@ try{
 	stage('Deploy') {
 		//redirect output to file and tail the file 
 		//if("${deploy}" == "true") {
-		log = sh (returnStdout: true, script: "ant -f build/build.xml deployCode -Dsfdc.serverurl=$sf_url -Dsfdc.username=$sf_user -Dsfdc.password=$sf_pass").trim()
+		log = sh (returnStdout: true, script: "ant -f build/build.xml PR_deployEmptyCheckOnly -Dsfdc.serverurl=$sf_url -Dsfdc.username=$sf_user -Dsfdc.password=$sf_pass").trim()
 		println "${log}"
 
 		//parse the String for the ID
