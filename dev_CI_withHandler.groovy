@@ -49,7 +49,7 @@
 
 			stage('CodeCheckout') {
 				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
-					userRemoteConfigs: [[url: 'ssh://tfs.cbre.com:22/tfs/CBRE01/SalesForce%20-%20Global%20Enterprise/_git/Global_Enterprise']]])
+					userRemoteConfigs: [[url: 'ssh://tfs.abc.com:22/tfs/abc01/SalesForce%20-%20Global%20Enterprise/_git/Global_Enterprise']]])
 			}
 			stage('Generate_Src&Package'){
 				sh '''node -v
@@ -144,7 +144,7 @@
 		        	attachLog: true,
 		        	compressLog: true,
 		        	recipientProviders: [[$class: 'CulpritsRecipientProvider'], [$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider'], [$class: 'FailingTestSuspectsRecipientProvider'], [$class: 'FirstFailingBuildSuspectsRecipientProvider'], [$class: 'UpstreamComitterRecipientProvider']],
-		        	to: "niristotle.okram@cbre.com"
+		        	to: "niristotle.okram@abc.com"
 		        	)
 				}
 
@@ -168,7 +168,7 @@
 		          attachLog: true,
 		          compressLog: true,
 		          recipientProviders: [[$class: 'CulpritsRecipientProvider'], [$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider'], [$class: 'FailingTestSuspectsRecipientProvider'], [$class: 'FirstFailingBuildSuspectsRecipientProvider'], [$class: 'UpstreamComitterRecipientProvider']],
-		          to: "niristotle.okram@cbre.com"
+		          to: "niristotle.okram@abc.com"
 		          )
 
 			}
